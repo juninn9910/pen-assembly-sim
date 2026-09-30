@@ -491,7 +491,7 @@ const UI_REF_W = 1700, UI_REF_H = 960;
 let uiScale = 1, layoutW = 0, layoutH = 0;
 function applyLayout(){
   layoutW = innerWidth; layoutH = innerHeight;
-  uiScale = Math.min(1.6, Math.max(0.5, Math.min(innerWidth/UI_REF_W, innerHeight/UI_REF_H)));
+  uiScale = Math.min(1.6, Math.max(0.4, Math.min(innerWidth/UI_REF_W, innerHeight/UI_REF_H))); // 폰(가로)은 약 0.4~0.5, 태블릿 0.6~0.8, 노트북 1
   const ui = $('ui');
   ui.style.width = (innerWidth/uiScale) + 'px'; ui.style.height = (innerHeight/uiScale) + 'px';
   ui.style.setProperty('--vh', (innerHeight/uiScale) + 'px');
@@ -2152,7 +2152,7 @@ function projXY(wp){ // 월드 좌표 → 화면 픽셀(3D 캔버스 위치·크
   return { x:(v.x+1)/2*r.width + r.left, y:(-v.y+1)/2*r.height + r.top };
 }
 window.APP = {
-  version:'1.6.0', THREE_REV: THREE.REVISION, CFG, S,
+  version:'1.6.1', THREE_REV: THREE.REVISION, CFG, S,
   missingVoices(){ return [...missingVoices]; }, // 내장 음성이 없어 기기 TTS로 대체된 문장 목록
   say: speak, // 교사 확인용: APP.say('문장')
   demo: showDemo,
